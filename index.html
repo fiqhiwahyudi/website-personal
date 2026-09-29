@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FIQHI FARM — Toko Hewan Ternak & Peliharaan Online</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="FIQHI FARM menyediakan hewan ternak berkualitas: anak ayam, bebek, hamster, dan lainnya. Pemesanan via WhatsApp." />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a href="#home" class="brand" aria-label="FIQHI FARM">
+        <span class="brand__logo" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo FIQHI FARM">
+            <defs>
+              <linearGradient id="g" x1="8" y1="10" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2ECC71"/>
+                <stop offset="1" stop-color="#A36A3C"/>
+              </linearGradient>
+            </defs>
+            <path d="M16 24L32 14L48 24V50H16V24Z" fill="url(#g)" opacity="0.95"/>
+            <path d="M10 28L32 14L54 28" stroke="#0B3D6B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 50V36C24 33.8 25.8 32 28 32H36C38.2 32 40 33.8 40 36V50" stroke="#0B3D6B" stroke-width="3" stroke-linecap="round"/>
+            <path d="M32 10L58 28H48L32 18L16 28H6L32 10Z" fill="#ffffff" opacity="0.22"/>
+            <path d="M18 37C18 31 23 28 28 29C33 30 35 34 33 38C30 44 18 45 18 37Z" fill="#fff" opacity="0.22"/>
+            <path d="M25 34L27 30" stroke="#F7F7F7" stroke-width="3" stroke-linecap="round"/>
+            <path d="M23 35L19 32" stroke="#F7F7F7" stroke-width="3" stroke-linecap="round"/>
+            <path d="M42 32C49 29 55 34 54 41C53 48 45 50 40 46C37 43 38 36 42 32Z" fill="#2ECC71" opacity="0.25"/>
+            <path d="M42 32C46 38 48 42 54 41" stroke="#2ECC71" stroke-width="3" stroke-linecap="round"/>
+            <path d="M38 46C39 42 44 40 47 43C50 46 49 51 45 52C41 53 37 50 38 46Z" fill="#A36A3C" opacity="0.2"/>
+            <path d="M41 45C42 44 45 44 46 45" stroke="#A36A3C" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">FIQHI FARM</span>
+          <span class="brand__tag">Modern • Terpercaya • Respon Cepat</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="nav__link" href="#home">Beranda</a>
+        <a class="nav__link" href="#produk">Produk</a>
+        <a class="nav__link" href="#tentang">Tentang Kami</a>
+        <a class="nav__link" href="#kontak">Kontak</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <a id="whatsAppNavBtn" class="btn btn--whatsapp btn--small" href="#" target="_blank" rel="noopener">
+          <span class="btn__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 .02 5.35.02 11.98c0 2.1.55 4.15 1.6 5.98L0 24l6.23-1.6c1.78.98 3.77 1.5 5.77 1.5h.01C18.63 23.9 24 18.55 24 11.92c0-3.5-1.4-6.78-3.48-8.44Z" fill="currentColor" opacity="0.2"/>
+              <path d="M12 5c-3.9 0-7 3.1-7 7 0 1.55.5 3 1.36 4.2L5 19l2.95-.88A6.97 6.97 0 0 0 12 18c3.9 0 7-3.1 7-7s-3.1-7-7-7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 9.3c.2 1.8 1.6 3.2 3.4 3.4.2 0 .4-.1.5-.2l1-1c.2-.2.2-.5 0-.7l-1-1c-.2-.2-.5-.2-.7 0l-.4.4c-.5-.3-1-.8-1.3-1.3l.4-.4c.2-.2.2-.5 0-.7l-1-1c-.2-.2-.5-.2-.7 0l-1 1c-.1.1-.2.3-.2.5Z" fill="currentColor"/>
+            </svg>
+          </span>
+          WhatsApp
+        </a>
+
+        <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileDrawer" class="drawer" hidden>
+      <a class="drawer__link" href="#home">Beranda</a>
+      <a class="drawer__link" href="#produk">Produk</a>
+      <a class="drawer__link" href="#tentang">Tentang Kami</a>
+      <a class="drawer__link" href="#kontak">Kontak</a>
+      <a id="whatsAppDrawerBtn" class="btn btn--whatsapp btn--block" href="#" target="_blank" rel="noopener">
+        Pesan via WhatsApp
+      </a>
+    </div>
+    <div class="drawer__backdrop" id="drawerBackdrop" hidden></div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title">Selamat Datang di <span class="accent">FIQHI FARM</span></h1>
+          <p class="hero__subtitle">Menyediakan hewan ternak berkualitas untuk kebutuhan Anda.</p>
+          <div class="hero__cta">
+            <a href="#produk" class="btn btn--primary">
+              <span class="btn__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Lihat Produk
+            </a>
+            <a id="heroWhatsBtn" class="btn btn--whatsapp" href="#" target="_blank" rel="noopener">
+              <span class="btn__icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 .02 5.35.02 11.98c0 2.1.55 4.15 1.6 5.98L0 24l6.23-1.6c1.78.98 3.77 1.5 5.77 1.5h.01C18.63 23.9 24 18.55 24 11.92c0-3.5-1.4-6.78-3.48-8.44Z" fill="currentColor" opacity="0.2"/>
+                  <path d="M12 5c-3.9 0-7 3.1-7 7 0 1.55.5 3 1.36 4.2L5 19l2.95-.88A6.97 6.97 0 0 0 12 18c3.9 0 7-3.1 7-7s-3.1-7-7-7Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 9.3c.2 1.8 1.6 3.2 3.4 3.4.2 0 .4-.1.5-.2l1-1c.2-.2.2-.5 0-.7l-1-1c-.2-.2-.5-.2-.7 0l-.4.4c-.5-.3-1-.8-1.3-1.3l.4-.4c.2-.2.2-.5 0-.7l-1-1c-.2-.2-.5-.2-.7 0l-1 1c-.1.1-.2.3-.2.5Z" fill="currentColor"/>
+                </svg>
+              </span>
+              Pesan via WhatsApp
+            </a>
+          </div>
+
+          <div class="hero__badges">
+            <div class="badge"><span class="badge__dot"></span> Respon Cepat</div>
+            <div class="badge"><span class="badge__dot"></span> Stok Update</div>
+            <div class="badge"><span class="badge__dot"></span> Harga Kompetitif</div>
+          </div>
+        </div>
+
+        <div class="hero__stats" role="list" aria-label="Keunggulan toko">
+          <div class="stat">
+            <div class="stat__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7h10v10H7V7Z" stroke="currentColor" stroke-width="2" />
+                <path d="M9 2v5M15 2v5M9 17v5M15 17v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="stat__body">
+              <div class="stat__value" id="statProducts">—</div>
+              <div class="stat__label">Kategori & Produk</div>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3l2 7h7l-5.5 4 2 7-5.5-4-5.5 4 2-7L3 10h7l2-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="stat__body">
+              <div class="stat__value" id="statInStock">—</div>
+              <div class="stat__label">Produk Stok Tersedia</div>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="stat__body">
+              <div class="stat__value">24 Jam</div>
+              <div class="stat__label">Pemesanan via WA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container heroCats">
+        <div class="sectionTitle">
+          <h2>Kategori Produk</h2>
+          <p>Pilih kategori untuk mempercepat pencarian.</p>
+        </div>
+        <div class="catGrid" id="catGrid" aria-label="Daftar kategori"></div>
+      </div>
+    </section>
+
+    <section id="produk" class="section">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2 class="sectionHead__title">Katalog Produk</h2>
+            <p class="sectionHead__desc">Cari, filter, lalu buka detail produk untuk info lengkap.</p>
+          </div>
+        </div>
+
+        <div class="filters" role="search">
+          <div class="filters__grid">
+            <div class="field">
+              <label for="searchInput">Cari Produk</label>
+              <input id="searchInput" type="search" placeholder="Contoh: bebek peking, hamster panda..." autocomplete="off" />
+            </div>
+
+            <div class="field">
+              <label for="categorySelect">Kategori</label>
+              <select id="categorySelect">
+                <option value="">Semua kategori</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="minPrice">Harga Min</label>
+              <input id="minPrice" type="number" min="0" step="1" placeholder="0" />
+            </div>
+
+            <div class="field">
+              <label for="maxPrice">Harga Max</label>
+              <input id="maxPrice" type="number" min="0" step="1" placeholder="999999999" />
+            </div>
+
+            <div class="field">
+              <label for="locationSelect">Lokasi</label>
+              <select id="locationSelect">
+                <option value="">Semua lokasi</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="stockSelect">Status Stok</label>
+              <select id="stockSelect">
+                <option value="">Semua status</option>
+                <option value="tersedia">Stok tersedia</option>
+                <option value="habis">Stok habis</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filters__actions">
+            <button id="resetBtn" class="btn btn--ghost">Reset</button>
+            <div class="filters__meta">
+              <span id="resultsCount" class="pill">0 hasil</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="productGrid" id="productGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="detail" class="section section--hidden">
+      <div class="container">
+        <div class="detailTop">
+          <a href="#produk" class="btn btn--ghost">
+            <span class="btn__icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Kembali
+          </a>
+        </div>
+        <div class="detailCard" id="detailCard"></div>
+      </div>
+    </section>
+
+    <section id="tentang" class="section section--alt">
+      <div class="container">
+        <div class="twoCol">
+          <div>
+            <h2>Tentang Kami</h2>
+            <p>
+              <strong>FIQHI FARM</strong> menyediakan berbagai hewan ternak dan hewan peliharaan dengan informasi produk yang jelas: nama, jenis, harga, lokasi, dan status stok.
+            </p>
+            <p>
+              Kami memudahkan pemesanan melalui <strong>WhatsApp</strong>—Anda tinggal pilih produk, lalu klik tombol “Pesan via WhatsApp” untuk mengirim pertanyaan otomatis.
+            </p>
+
+            <div class="featureList">
+              <div class="featureItem">
+                <span class="featureItem__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                Data produk transparan
+              </div>
+              <div class="featureItem">
+                <span class="featureItem__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                Respon cepat & ramah
+              </div>
+              <div class="featureItem">
+                <span class="featureItem__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21s-7-4.35-7-11a7 7 0 0 1 14 0c0 6.65-7 11-7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                Panduan perawatan sederhana
+              </div>
+            </div>
+          </div>
+
+          <div class="aboutPanel">
+            <div class="aboutPanel__top">
+              <div class="aboutPanel__title">
+                <span class="aboutPanel__badge">Keunggulan</span>
+                <h3>Belanja ternak lebih praktis</h3>
+              </div>
+              <p class="muted">Tampilan responsif untuk HP & desktop, card modern, hover halus.</p>
+            </div>
+
+            <div class="aboutPanel__list" role="list">
+              <div class="aboutItem" role="listitem">
+                <div class="aboutItem__icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 20V10l8-6 8 6v10" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="aboutItem__title">Toko Terpercaya</div>
+                  <div class="aboutItem__desc">Produk ditampilkan rapi dan mudah dibandingkan.</div>
+                </div>
+              </div>
+              <div class="aboutItem" role="listitem">
+                <div class="aboutItem__icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V5a2 2 0 0 1 2-2h12a4 4 0 0 1 4 4v8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M8 8h8M8 12h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="aboutItem__title">Otomatis WhatsApp</div>
+                  <div class="aboutItem__desc">Pesan otomatis berisi nama produk yang Anda pilih.</div>
+                </div>
+              </div>
+              <div class="aboutItem" role="listitem">
+                <div class="aboutItem__icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="aboutItem__title">Pencarian & Filter</div>
+                  <div class="aboutItem__desc">Filter kategori, harga, lokasi, dan stok.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="aboutPanel__cta">
+              <a href="#produk" class="btn btn--primary btn--full">Lihat katalog</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak" class="section">
+      <div class="container">
+        <div class="contactGrid">
+          <div class="contactCard">
+            <h2>Kontak</h2>
+            <div class="contactList">
+              <div class="contactItem">
+                <div class="contactItem__label">Nomor WhatsApp</div>
+                <div class="contactItem__value">+62 851-1187-9863</div>
+              </div>
+              <div class="contactItem">
+                <div class="contactItem__label">Alamat / Lokasi</div>
+                <div class="contactItem__value">jl king gede ing suro</div>
+              </div>
+              <div class="contactItem">
+                <div class="contactItem__label">Email</div>
+                <div class="contactItem__value">fiqhiwahyudi12@gmail.com</div>
+              </div>
+              <div class="contactItem">
+                <div class="contactItem__label">Jam operasional</div>
+                <div class="contactItem__value">24 jam</div>
+              </div>
+            </div>
+
+            <div class="contactCard__cta">
+              <a id="contactWhatsBtn" class="btn btn--whatsapp btn--full" href="#" target="_blank" rel="noopener">
+                Pesan via WhatsApp
+              </a>
+            </div>
+
+            <p class="muted small">*Klik tombol untuk membuka WhatsApp dengan pesan otomatis.</p>
+          </div>
+
+          <div class="contactAside">
+            <div class="mapMock">
+              <div class="mapMock__title">Lokasi</div>
+              <div class="mapMock__desc">jl king gede ing suro</div>
+              <div class="mapMock__grid" aria-hidden="true"></div>
+            </div>
+
+            <div class="trustBar">
+              <div class="trustBar__item">
+                <div class="trustBar__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                Stok & info jelas
+              </div>
+              <div class="trustBar__item">
+                <div class="trustBar__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5 7 13 7 13s7-8 7-13c0-3.87-3.13-7-7-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                Lokasi tersedia
+              </div>
+              <div class="trustBar__item">
+                <div class="trustBar__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                Siap dihubungi
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="brand brand--footer">
+          <span class="brand__logo brand__logo--sm" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 24L32 14L48 24V50H16V24Z" fill="#2ECC71" opacity="0.25"/>
+              <path d="M10 28L32 14L54 28" stroke="#2ECC71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 50V36C24 33.8 25.8 32 28 32H36C38.2 32 40 33.8 40 36V50" stroke="#A36A3C" stroke-width="3" stroke-linecap="round"/>
+              <path d="M42 32C49 29 55 34 54 41C53 48 45 50 40 46C37 43 38 36 42 32Z" fill="#2ECC71" opacity="0.2"/>
+            </svg>
+          </span>
+          <div>
+            <div class="footer__name">FIQHI FARM</div>
+            <div class="footer__desc">Toko peternakan modern. Pemesanan cepat via WhatsApp.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <div class="footer__title">Navigasi</div>
+          <a href="#home" class="footer__link">Beranda</a>
+          <a href="#produk" class="footer__link">Produk</a>
+          <a href="#tentang" class="footer__link">Tentang Kami</a>
+          <a href="#kontak" class="footer__link">Kontak</a>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__title">Kontak</div>
+          <div class="footer__meta">WhatsApp: <a id="footerWhatsLink" class="footer__link" href="#" target="_blank" rel="noopener">+62 851-1187-9863</a></div>
+          <div class="footer__meta">Alamat: jl king gede ing suro</div>
+          <div class="footer__meta">Email: <a class="footer__link" href="mailto:fiqhiwahyudi12@gmail.com">fiqhiwahyudi12@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottomInner">
+        <span>© 2026 FIQHI FARM</span>
+        <span class="muted small">Desain responsif • Ringan • Modern</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
